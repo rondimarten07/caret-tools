@@ -98,4 +98,34 @@ export const FAQS: Record<string, Faq[]> = {
   "sitemap-generator": [
     { q: "What changefreq and priority should I use?", a: "Modern search engines mostly ignore these. Defaults are fine. The important parts are <loc> and <lastmod>." },
   ],
+  "svg-to-react": [
+    { q: "Does it handle complex SVG with gradients?", a: "Most cases yes — common attrs are camelCased. For advanced cases (filter URL refs, embedded scripts) you may need manual cleanup." },
+  ],
+  "css-specificity": [
+    { q: "Why do my styles get overridden?", a: "The selector with higher specificity wins, regardless of source order. Use this tool to compare and find the culprit." },
+  ],
+  "diff-viewer": [
+    { q: "Can I paste output from git diff?", a: "Yes — copy git diff output as-is, including the diff/index/--- /+++ headers." },
+  ],
+  "cubic-bezier": [
+    { q: "What's the difference between 'ease-in-out' and a custom curve?", a: "Built-in keywords map to specific cubic-bezier values. Custom curves give finer control — e.g. overshoot for playful UI." },
+  ],
+  "box-model": [
+    { q: "Does box-sizing change this?", a: "Yes — with box-sizing: border-box, padding and border are subtracted from width/height instead of added. This tool shows the default content-box behavior." },
+  ],
+  "uuid-v7": [
+    { q: "When should I use v7 instead of v4?", a: "Use v7 when sorting matters (database primary keys, sortable IDs). v4 is fine for completely random IDs without ordering needs." },
+  ],
+  "isbn-validator": [
+    { q: "What about the X in old ISBNs?", a: "ISBN-10 uses X for check digit value 10 (since check is mod 11). This tool handles X correctly." },
+  ],
+  "id-phone-validator": [
+    { q: "Does this verify the number is real or active?", a: "No — it only validates FORMAT and identifies the likely carrier from the prefix. Real-time verification requires the operator's API." },
+  ],
+  "image-to-ico": [
+    { q: "Why multiple sizes in one .ico?", a: "Operating systems pick the best size for context (taskbar uses 16, alt-tab uses 32). Multi-size .ico means crisp icons everywhere." },
+  ],
+  "frontmatter-editor": [
+    { q: "Compatible with which static site generators?", a: "Standard YAML frontmatter works with Hugo, Astro, Next.js, Gatsby, Jekyll, Eleventy, and most others." },
+  ],
 };
