@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e4e4e7"/>
+    </pattern>
+    <radialGradient id="glow" cx="100%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Brand mark + wordmark -->
+  <g transform="translate(72, 72)">
+    <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+    <g stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M 14 38 L 32 20 L 50 38" stroke-width="6.5"/>
+      <path d="M 22 50 H 42" stroke-width="5.5"/>
+    </g>
+    <text x="84" y="46" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="700" fill="#09090b" letter-spacing="-0.6">
+      Caret<tspan fill="#4f46e5">.</tspan>
+    </text>
+  </g>
+
+  <!-- Headline -->
+  <text x="72" y="320" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="800" fill="#09090b" letter-spacing="-2.4">
+    <tspan x="72" dy="0">Precision tools,</tspan>
+    <tspan x="72" dy="108">in your pocket<tspan fill="#4f46e5">.</tspan></tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="72" y="556" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="#52525b" letter-spacing="-0.2">
+    107 calm utilities across 10 categories. Free, in-browser, offline-ready.
+  </text>
+
+  <!-- Stat block -->
+  <g transform="translate(840, 200)">
+    <rect width="288" height="288" rx="20" fill="#ffffff" stroke="#e4e4e7" stroke-width="1.5"/>
+    <text x="144" y="100" font-family="JetBrains Mono, monospace" font-size="96" font-weight="700" fill="#09090b" text-anchor="middle" letter-spacing="-3">107</text>
+    <text x="144" y="138" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#71717a" text-anchor="middle" letter-spacing="2">FREE TOOLS</text>
+    <line x1="48" y1="170" x2="240" y2="170" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="48" y="208" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#52525b">JSON · Color · QR</text>
+    <text x="48" y="232" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#52525b">Regex · Hash · JWT</text>
+    <text x="48" y="256" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#52525b">PDF · Mermaid · BIP39</text>
+  </g>
+</svg>

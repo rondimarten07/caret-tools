@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  ───────────────────────────────────────────────────────────────
+  Tools Hub design tokens — "Iris" palette
+  Refined, modern, restrained.
+  - Single brand accent (indigo) does the work.
+  - Neutrals (zinc) carry surfaces, text, borders, hover states.
+  - Category tints are used sparingly (icon + thin ring only).
+  - Dark mode is a near-black tinted slightly cool (Linear-style),
+    never pure #000.
+  ───────────────────────────────────────────────────────────────
+*/
+
+@layer base {
+  :root {
+    /* Surfaces & text — pure neutrals (zinc) */
+    --background: 0 0% 100%;
+    --foreground: 240 6% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 10%;
+
+    /* Single brand accent — indigo-600 */
+    --primary: 239 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 239 84% 60%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 234 89% 74%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 6% 14%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 16%;
+    --input: 240 6% 16%;
+    --ring: 234 89% 74%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.18);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Refined hero — single soft primary glow, no rainbow */
+  .hero-surface {
+    background:
+      radial-gradient(60% 60% at 90% 100%, hsl(var(--primary) / 0.12) 0%, transparent 70%),
+      radial-gradient(50% 50% at 10% 0%, hsl(var(--primary) / 0.08) 0%, transparent 70%),
+      hsl(var(--card));
+  }
+
+  /* Faint dotted backdrop */
+  .dotted-bg {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      hsl(var(--foreground) / 0.06) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+
+  /* Card hover — single primary tint, very subtle */
+  .card-hover-ring {
+    position: relative;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card-hover-ring:hover {
+    transform: translateY(-1px);
+    border-color: hsl(var(--primary) / 0.35);
+    box-shadow:
+      0 1px 2px hsl(var(--foreground) / 0.04),
+      0 8px 24px hsl(var(--primary) / 0.08);
+  }
+
+  /* Section eyebrow */
+  .section-eyebrow {
+    @apply flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground;
+  }
+
+  /* Soft chip */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border bg-background/70 px-2.5 py-1 text-xs text-muted-foreground backdrop-blur;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
