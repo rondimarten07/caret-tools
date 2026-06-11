@@ -168,28 +168,34 @@
   .text-balance {
     text-wrap: balance;
   }
+}
 
-  /* Staggered fade-up entry — set `--i` per child for cascade */
-  @keyframes rise {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-rise {
+/* ─────────────────────────────────────────────────────────────────
+   Staggered fade-up entry — defined OUTSIDE @layer so Tailwind
+   never tree-shakes the rule (custom property `--i` per child).
+   ───────────────────────────────────────────────────────────────── */
+@keyframes caret-rise {
+  from {
     opacity: 0;
-    animation: rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    animation-delay: calc(var(--i, 0) * 55ms);
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    .animate-rise {
-      animation: none;
-      opacity: 1;
-    }
+.animate-rise {
+  opacity: 0;
+  animation: caret-rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
