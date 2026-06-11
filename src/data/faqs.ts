@@ -128,4 +128,32 @@ export const FAQS: Record<string, Faq[]> = {
   "frontmatter-editor": [
     { q: "Compatible with which static site generators?", a: "Standard YAML frontmatter works with Hugo, Astro, Next.js, Gatsby, Jekyll, Eleventy, and most others." },
   ],
+  "caesar-brute": [
+    { q: "Why try all shifts?", a: "Caesar cipher only has 25 useful shifts. Brute-forcing every one is faster than guessing — the readable line is the answer." },
+  ],
+  "test-card-numbers": [
+    { q: "Can I use these in production?", a: "No. These numbers only work in sandbox/test mode of payment processors like Stripe. Real charges will be rejected." },
+    { q: "Why do they pass Luhn?", a: "They're designed to look like valid cards so test forms accept them, but the issuer ranges are reserved for testing only." },
+  ],
+  "currency-symbols": [
+    { q: "Are these all official?", a: "Yes — codes are ISO 4217. Symbols reflect common everyday use; some currencies share glyphs (e.g. $, ¥)." },
+  ],
+  "image-probe": [
+    { q: "Is my image uploaded?", a: "No. Dimensions and metadata are read locally via the browser — the file never leaves your device." },
+  ],
+  "roman-year": [
+    { q: "Why only 1–3999?", a: "Standard Roman numerals stop at MMMCMXCIX (3999). Larger numbers historically used vinculum (overlines), which isn't represented here." },
+  ],
+  "jwt-debugger": [
+    { q: "Does this verify the signature?", a: "No — it only decodes and analyzes claims (exp, nbf, iat). Use the JWT Signer tool for verification." },
+  ],
+  "http-headers": [
+    { q: "Is this exhaustive?", a: "No — it covers the most common ~25 headers you'll encounter day-to-day. Refer to MDN for the full list." },
+  ],
+  "cidr-expander": [
+    { q: "Why is there a 4096-IP cap?", a: "To keep the browser responsive. For larger ranges, use a CLI tool — listing /16 means 65k rows." },
+  ],
+  "mac-generator": [
+    { q: "What is the locally administered bit?", a: "Bit 1 of the first octet — set means the MAC is locally assigned (not from a hardware vendor). Useful for virtual interfaces." },
+  ],
 };
