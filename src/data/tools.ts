@@ -221,6 +221,9 @@ import {
   Bold,
   Quote,
   Columns2,
+  Mail,
+  Repeat,
+  Asterisk,
   type LucideIcon,
 } from "lucide-react";
 import type { CategoryId } from "@/data/categories";
@@ -2133,6 +2136,32 @@ export const tools: Tool[] = [
   { slug: "dns-records", name: "DNS Record Types", category: "network", description: "A, AAAA, CNAME, MX, TXT, SRV, CAA — what each does.", icon: ServerCog, keywords: ["dns", "records", "a", "cname", "mx", "txt"], component: lazy(() => import("@/tools/network/DnsRecords")) },
   { slug: "http-cache", name: "HTTP Cache Header Builder", category: "network", description: "Compose Cache-Control headers without guessing the directives.", icon: Globe, keywords: ["cache", "cache-control", "http", "headers"], component: lazy(() => import("@/tools/network/HttpCache")) },
   { slug: "password-entropy", name: "Password Entropy", category: "security", description: "Compute the entropy (bits) of a password & estimate crack time.", icon: KeyRoundIcon2, keywords: ["entropy", "password", "strength", "bits"], component: lazy(() => import("@/tools/security/PasswordEntropy")) },
+  // ============================== Sesi 10 ==============================
+  { slug: "random-word", name: "Random Words", category: "generator", description: "Pick random English words — adjustable count and minimum length.", icon: Shuffle, keywords: ["random", "word", "dictionary"], component: lazy(() => import("@/tools/generator/RandomWord")) },
+  { slug: "placeholder-image", name: "Placeholder Image URL", category: "generator", description: "Build picsum.photos / placehold.co / dummyimage URLs.", icon: ImagePlus, keywords: ["placeholder", "image", "lorem picsum", "url"], component: lazy(() => import("@/tools/generator/PlaceholderImage")) },
+  { slug: "avatar-url", name: "Avatar URL", category: "generator", description: "Generate DiceBear avatar URLs from a seed.", icon: UserIcon2, keywords: ["avatar", "dicebear", "profile"], component: lazy(() => import("@/tools/generator/Avatar")) },
+  { slug: "email-signature", name: "Email Signature", category: "generator", description: "Build a clean HTML email signature.", icon: Mail, keywords: ["email", "signature", "html"], component: lazy(() => import("@/tools/generator/EmailSignature")) },
+  { slug: "holiday-calendar", name: "Holiday Calendar", category: "time", description: "Public holidays for ID / US / UK / SG by year.", icon: PartyPopper, keywords: ["holiday", "public", "calendar"], component: lazy(() => import("@/tools/time/HolidayCalendar")) },
+  { slug: "months-between", name: "Months Between Dates", category: "time", description: "Years, months and days between two dates.", icon: CalendarDays, keywords: ["date diff", "months", "years"], component: lazy(() => import("@/tools/time/MonthsBetween")) },
+  { slug: "birthday-countdown", name: "Birthday Countdown", category: "time", description: "Days until your next birthday and your exact age.", icon: Cake, keywords: ["birthday", "countdown", "age"], component: lazy(() => import("@/tools/time/BirthdayCountdown")) },
+  { slug: "calendar-week", name: "Calendar Year Grid", category: "time", description: "Visualize all weeks of a year as a grid (life-in-weeks style).", icon: CalendarRange, keywords: ["calendar", "weeks", "year", "grid"], component: lazy(() => import("@/tools/time/CalendarWeek")) },
+  { slug: "determinant", name: "Matrix Determinant", category: "math", description: "Compute the determinant of a 2×2 or 3×3 matrix.", icon: Grid, keywords: ["determinant", "matrix", "linear"], component: lazy(() => import("@/tools/math/Determinant")) },
+  { slug: "prime-checker", name: "Prime Checker", category: "math", description: "Is N prime? Plus next/previous prime.", icon: Asterisk, keywords: ["prime", "primality", "next prime"], component: lazy(() => import("@/tools/math/PrimeChecker")) },
+  { slug: "sequence-sum", name: "Sequence Sum", category: "math", description: "Sum of first N integers, squares, cubes, geometric series.", icon: SigmaIcon3, keywords: ["sum", "sequence", "series", "gauss"], component: lazy(() => import("@/tools/math/SequenceSum")) },
+  { slug: "exp-growth", name: "Exponential Growth / Decay", category: "math", description: "Project growth or decay with a constant rate.", icon: TrendingUp, keywords: ["exponential", "growth", "decay", "compound"], component: lazy(() => import("@/tools/math/ExpGrowth")) },
+  { slug: "ipv6-simplifier", name: "IPv6 Simplifier", category: "network", description: "Compress or expand an IPv6 address to canonical form.", icon: NetworkIcon2, keywords: ["ipv6", "compress", "expand", "address"], component: lazy(() => import("@/tools/network/Ipv6Simplifier")) },
+  { slug: "email-headers", name: "Email Header Reference", category: "network", description: "Common email headers — Received, DKIM, SPF, Authentication-Results.", icon: Mail, keywords: ["email", "headers", "dkim", "spf"], component: lazy(() => import("@/tools/network/EmailHeaders")) },
+  { slug: "subnet-mask-cheatsheet", name: "Subnet Mask Cheatsheet", category: "network", description: "Full /0 to /32 reference — mask, hosts, wildcard.", icon: ServerCogIcon2, keywords: ["subnet", "mask", "cidr", "cheatsheet"], component: lazy(() => import("@/tools/network/SubnetMaskCheatsheet")) },
+  { slug: "csv-to-markdown", name: "CSV → Markdown Table", category: "programming", description: "Paste CSV, get a Markdown / GitHub-flavored table.", icon: TableIcon, keywords: ["csv", "markdown", "table", "convert"], component: lazy(() => import("@/tools/programming/CsvToMarkdown")) },
+  { slug: "aria-roles", name: "ARIA Roles", category: "programming", description: "ARIA roles & landmarks — when to use each.", icon: Accessibility, keywords: ["aria", "roles", "a11y", "accessibility"], component: lazy(() => import("@/tools/programming/AriaRoles")) },
+  { slug: "html-attrs", name: "HTML Attributes", category: "programming", description: "Common & global HTML attributes — what they do.", icon: FileCode, keywords: ["html", "attributes", "reference"], component: lazy(() => import("@/tools/programming/HtmlAttrs")) },
+  { slug: "html-to-jsx", name: "HTML → JSX", category: "programming", description: "Convert HTML to JSX-compatible syntax (class→className, etc).", icon: Code2, keywords: ["html", "jsx", "react", "convert"], component: lazy(() => import("@/tools/programming/HtmlToJsx")) },
+  { slug: "css-reset", name: "CSS Reset", category: "design", description: "Modern, minimal CSS resets — pick & copy.", icon: PaletteIcon, keywords: ["css", "reset", "normalize"], component: lazy(() => import("@/tools/design/CssReset")) },
+  { slug: "type-pairing", name: "Typography Pairings", category: "design", description: "Curated Google Fonts pairings for headings + body.", icon: Feather, keywords: ["typography", "fonts", "pairing", "google fonts"], component: lazy(() => import("@/tools/design/TypographyPairing")) },
+  { slug: "letter-frequency", name: "Letter Frequency", category: "text", description: "Histogram of letter frequencies in a text.", icon: BarChart3, keywords: ["frequency", "letters", "histogram"], component: lazy(() => import("@/tools/text/LetterFrequency")) },
+  { slug: "reverse-words", name: "Reverse Word Order", category: "text", description: "Reverse the order of words in each line.", icon: ChevronsRightLeft, keywords: ["reverse", "words", "order"], component: lazy(() => import("@/tools/text/ReverseWords")) },
+  { slug: "image-duotone", name: "Image Duotone", category: "image", description: "Apply a two-color duotone filter to any image.", icon: BlendIcon, keywords: ["duotone", "image", "filter", "color"], component: lazy(() => import("@/tools/image/Duotone")) },
+  { slug: "hash-chain", name: "Hash Chain", category: "security", description: "Apply SHA-256 N times in a row — visualize a hash chain.", icon: Repeat, keywords: ["hash", "chain", "sha-256", "iterate"], component: lazy(() => import("@/tools/security/HashChain")) },
 ];
 
 export const toolsBySlug = Object.fromEntries(

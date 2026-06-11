@@ -249,4 +249,43 @@ export const FAQS: Record<string, Faq[]> = {
   "password-entropy": [
     { q: "Is bits-of-entropy the right metric?", a: "Only for truly random passwords. Memorable passwords have far less effective entropy than the formula suggests because attackers use dictionaries and rules." },
   ],
+  "avatar-url": [
+    { q: "Is DiceBear free for commercial use?", a: "Yes — DiceBear and its bundled avatar styles are open-source (MIT or similar). URLs are deterministic per seed." },
+  ],
+  "email-signature": [
+    { q: "Will this work in Gmail and Outlook?", a: "Yes. The HTML uses inline styles and a basic table layout, which is the safest cross-client format. Avoid CSS files or class-based styling." },
+  ],
+  "holiday-calendar": [
+    { q: "Why aren't Eid / Easter / Lunar New Year listed?", a: "Those move year-to-year on different calendars and need a live data source. This tool stays fully offline; pair with a holiday API for those." },
+  ],
+  "birthday-countdown": [
+    { q: "Does it handle Feb 29 birthdays?", a: "Yes — JavaScript's Date normalizes Feb 29 to Mar 1 in non-leap years, so the countdown lands on Mar 1 then." },
+  ],
+  "prime-checker": [
+    { q: "Why does it slow down past 10¹²?", a: "It uses trial division, which is √n. For very large n you want a probabilistic test like Miller–Rabin." },
+  ],
+  "exp-growth": [
+    { q: "How is doubling time computed?", a: "Doubling time = ln 2 / ln(1 + r). For small r, the rule of 72 (72 / percent-rate) is a quick mental approximation." },
+  ],
+  "ipv6-simplifier": [
+    { q: "Why does the compressed form differ slightly from my router's output?", a: "RFC 5952 picks the longest run of zeros, leftmost on tie. Some implementations are looser — both forms expand to the same address." },
+  ],
+  "csv-to-markdown": [
+    { q: "Does it handle quoted commas?", a: "Yes — values in double quotes can contain commas and escaped quotes (\"\")." },
+  ],
+  "aria-roles": [
+    { q: "Should I add role=\"button\" to a button?", a: "No. Native <button> already announces as a button. ARIA is for when no native element fits." },
+  ],
+  "html-to-jsx": [
+    { q: "Why doesn't it convert <script> tags?", a: "JSX intentionally treats <script> as a regular element. If you need to embed scripts in React, prefer useEffect with document.createElement('script')." },
+  ],
+  "type-pairing": [
+    { q: "Why these pairings?", a: "Each combines a distinctive heading font with a neutral, readable body font — a classic pairing rule. Pick the mood that matches your product." },
+  ],
+  "image-duotone": [
+    { q: "Will the duotone affect transparency?", a: "Pixel alpha is preserved; only the RGB channels are remapped between the two chosen colors based on luminance." },
+  ],
+  "hash-chain": [
+    { q: "What is a hash chain used for?", a: "Lamport one-time signatures, S/Key OTPs, and stretched key derivation (PBKDF2 / Argon2) all rely on iterated hashing." },
+  ],
 };
