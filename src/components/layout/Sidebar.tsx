@@ -9,8 +9,11 @@ import {
   Lightbulb,
   PanelLeftClose,
   PanelLeftOpen,
+  ArrowRight,
   X,
 } from "lucide-react";
+
+const SIDEBAR_CATEGORY_LIMIT = 7;
 import { useTranslation } from "react-i18next";
 import { BrandWordmark, BrandMark } from "@/components/Brand";
 import { categories } from "@/data/categories";
@@ -235,6 +238,8 @@ export function Sidebar({ onNavigate, onOpenSearch }: Props) {
             {categories.map((c) => {
               const list = toolsByCategory(c.id);
               const Icon = c.icon;
+              const visible = list.slice(0, SIDEBAR_CATEGORY_LIMIT);
+              const overflow = list.length - visible.length;
               return (
                 <CollapsibleSection
                   key={c.id}
@@ -250,7 +255,7 @@ export function Sidebar({ onNavigate, onOpenSearch }: Props) {
                   onToggle={() => toggleGroup(c.id)}
                 >
                   <ul className="space-y-0.5">
-                    {list.map((tl) => (
+                    {visible.map((tl) => (
                       <ToolRow
                         key={tl.slug}
                         tool={tl}
@@ -259,6 +264,13 @@ export function Sidebar({ onNavigate, onOpenSearch }: Props) {
                         onToggleStar={() => toggleFav(tl.slug)}
                       />
                     ))}
+                    {overflow > 0 && (
+                      <SeeAllRow
+                        to={`/category/${c.id}`}
+                        count={overflow}
+                        onNavigate={onNavigate}
+                      />
+                    )}
                   </ul>
                 </CollapsibleSection>
               );
@@ -356,6 +368,32 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       </div>
       <div className="ml-3.5 border-l border-border/60 pl-2">{children}</div>
     </div>
+  );
+}
+
+function SeeAllRow({
+  to,
+  count,
+  onNavigate,
+}: {
+  to: string;
+  count: number;
+  onNavigate?: () => void;
+}) {
+  return (
+    <li>
+      <Link
+        to={to}
+        onClick={onNavigate}
+        className={cn(
+          "group/see flex items-center gap-2 rounded-md py-1.5 pl-3 pr-1.5 text-xs font-medium",
+          "text-primary/90 hover:bg-primary/10 hover:text-primary"
+        )}
+      >
+        <span className="truncate">See all {count} more</span>
+        <ArrowRight className="ml-auto h-3 w-3 -translate-x-0.5 transition-transform group-hover/see:translate-x-0" />
+      </Link>
+    </li>
   );
 }
 
