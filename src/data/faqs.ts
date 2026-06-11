@@ -201,4 +201,52 @@ export const FAQS: Record<string, Faq[]> = {
   "apikey-format": [
     { q: "Can I use these in production?", a: "No — these are random strings shaped to look like real keys. They won't authenticate against any service. Generate via your provider's dashboard." },
   ],
+  "lat-lng-dms": [
+    { q: "Which format do GPS devices use?", a: "Modern devices output decimal degrees; aviation, navigation and old maps tend to use DMS. The tool round-trips both." },
+  ],
+  "color-temperature": [
+    { q: "How accurate is the Kelvin → RGB conversion?", a: "It uses Tanner Helland's well-known approximation — close enough for design previews and white-balance intuition, not a colorimetric reference." },
+  ],
+  "modular-inverse": [
+    { q: "Why might there be no inverse?", a: "a⁻¹ mod m exists only when gcd(a, m) = 1. Otherwise the equation a·x ≡ 1 (mod m) has no solution." },
+  ],
+  "fibonacci": [
+    { q: "How can it compute F(50000) quickly?", a: "Fast-doubling computes F(2k) and F(2k+1) from F(k) and F(k+1) — O(log n) BigInt operations." },
+  ],
+  "palindrome": [
+    { q: "Loose vs strict mode?", a: "Loose ignores case, spaces and punctuation (the classic 'A man, a plan...' counts). Strict requires character-for-character symmetry." },
+  ],
+  "bionic-reading": [
+    { q: "Does this actually help me read faster?", a: "Studies are mixed. Many readers find emphasized leading letters help anchor saccades; others see no improvement. Try it on a long article and see." },
+  ],
+  "smart-quotes": [
+    { q: "When should I avoid smart quotes?", a: "Inside code, CSV, JSON, shell commands or anywhere a parser expects ASCII U+0022 / U+0027. Use straight quotes for code blocks." },
+  ],
+  "image-rotate": [
+    { q: "Does rotation re-encode my image?", a: "Yes — output is re-encoded as PNG. Source EXIF metadata is not preserved." },
+  ],
+  "image-pixelate": [
+    { q: "Can this anonymize a face?", a: "Visual obfuscation only. Forensic techniques can sometimes recover blurred or pixelated faces. For real anonymization, replace the region with a solid block." },
+  ],
+  "z-index-explain": [
+    { q: "Why doesn't z-index: 9999 win?", a: "Because the element is inside a parent that's a stacking context — z-index only competes within the same context. Lift it out or raise the parent." },
+  ],
+  "shields-badge": [
+    { q: "What format do shields.io URLs use?", a: "img.shields.io/badge/<label>-<message>-<color>. Dashes inside text are escaped as double-dash (--), underscores as double-underscore (__)." },
+  ],
+  "toml-formatter": [
+    { q: "Is this the full TOML 1.0 spec?", a: "No. It handles strings, numbers, booleans, arrays and nested tables. Datetime literals and arrays-of-tables ([[items]]) are not parsed." },
+  ],
+  "http-methods": [
+    { q: "What's the difference between PUT and PATCH?", a: "PUT replaces the entire resource; PATCH applies a partial update (often JSON-Patch or JSON-Merge-Patch)." },
+  ],
+  "dns-records": [
+    { q: "Why can't a CNAME live at the apex?", a: "RFC 1034 forbids CNAME alongside other records (and the apex always has SOA/NS). Providers offer ALIAS/ANAME as a workaround." },
+  ],
+  "http-cache": [
+    { q: "When should I use immutable?", a: "On URLs whose content can never change — typically build-hashed assets like /app.abc123.js. Browsers then skip revalidation entirely." },
+  ],
+  "password-entropy": [
+    { q: "Is bits-of-entropy the right metric?", a: "Only for truly random passwords. Memorable passwords have far less effective entropy than the formula suggests because attackers use dictionaries and rules." },
+  ],
 };

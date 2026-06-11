@@ -217,6 +217,10 @@ import {
   WrapText,
   Plug,
   Languages,
+  Thermometer,
+  Bold,
+  Quote,
+  Columns2,
   type LucideIcon,
 } from "lucide-react";
 import type { CategoryId } from "@/data/categories";
@@ -2103,6 +2107,32 @@ export const tools: Tool[] = [
   { slug: "port-reference", name: "Common Ports", category: "network", description: "Searchable list of well-known TCP/UDP ports.", icon: Plug, keywords: ["port", "tcp", "udp", "reference"], component: lazy(() => import("@/tools/network/PortReference")) },
   { slug: "ip-class", name: "IPv4 Class Identifier", category: "network", description: "Classify any IPv4 address (A/B/C/D/E, private, loopback).", icon: NetworkIcon2, keywords: ["ip class", "ipv4", "private", "rfc1918"], component: lazy(() => import("@/tools/network/IpClass")) },
   { slug: "pig-latin", name: "Pig Latin", category: "text", description: "Translate text to Pig Latin (and back).", icon: Languages, keywords: ["pig latin", "translate", "fun"], component: lazy(() => import("@/tools/text/PigLatin")) },
+  // ============================== Sesi 9 ==============================
+  { slug: "lat-lng-dms", name: "Lat/Lng ↔ DMS", category: "converter", description: "Convert between decimal degrees and degrees-minutes-seconds.", icon: MapPin, keywords: ["latitude", "longitude", "dms", "gps", "coordinates"], component: lazy(() => import("@/tools/converter/LatLngDms")) },
+  { slug: "polar-cartesian", name: "Polar ↔ Cartesian", category: "converter", description: "Convert between (r, θ) and (x, y) coordinates.", icon: SplineIcon, keywords: ["polar", "cartesian", "coordinates", "math"], component: lazy(() => import("@/tools/converter/PolarCartesian")) },
+  { slug: "frequency-units", name: "Frequency Units", category: "converter", description: "Convert between Hz, kHz, MHz, GHz, RPM and BPM.", icon: Radio, keywords: ["frequency", "hz", "rpm", "bpm", "convert"], component: lazy(() => import("@/tools/converter/Frequency")) },
+  { slug: "color-temperature", name: "Color Temperature", category: "converter", description: "Kelvin → RGB approximation with named light references.", icon: Thermometer, keywords: ["kelvin", "color temperature", "white balance", "lighting"], component: lazy(() => import("@/tools/converter/ColorTemp")) },
+  { slug: "modular-inverse", name: "Modular Inverse", category: "math", description: "Find a⁻¹ mod m via extended Euclidean (Bézout).", icon: SigmaIcon, keywords: ["modular", "inverse", "bezout", "extended euclidean"], component: lazy(() => import("@/tools/math/ModularInverse")) },
+  { slug: "fibonacci", name: "Fibonacci", category: "math", description: "Nth Fibonacci number (BigInt) — handles thousands of digits.", icon: SigmaIcon2, keywords: ["fibonacci", "sequence", "math"], component: lazy(() => import("@/tools/math/Fibonacci")) },
+  { slug: "logarithm", name: "Logarithm Calculator", category: "math", description: "log_b(x), ln, log₂, log₁₀.", icon: TrendingUp, keywords: ["log", "logarithm", "ln", "natural"], component: lazy(() => import("@/tools/math/Logarithm")) },
+  { slug: "anagram", name: "Anagram Solver", category: "text", description: "Find anagrams or check if two strings are anagrams.", icon: Shuffle, keywords: ["anagram", "letters", "puzzle"], component: lazy(() => import("@/tools/text/Anagram")) },
+  { slug: "palindrome", name: "Palindrome Checker", category: "text", description: "Test if text is a palindrome (smart whitespace/case rules).", icon: ArrowLeftRight, keywords: ["palindrome", "reverse", "check"], component: lazy(() => import("@/tools/text/Palindrome")) },
+  { slug: "bionic-reading", name: "Bionic Reading", category: "text", description: "Bold the first half of every word for faster reading.", icon: Bold, keywords: ["bionic", "reading", "fast", "bold"], component: lazy(() => import("@/tools/text/Bionic")) },
+  { slug: "smart-quotes", name: "Smart Quotes Normalizer", category: "text", description: "Convert between curly and straight quotes.", icon: Quote, keywords: ["smart quotes", "curly", "straight", "typography"], component: lazy(() => import("@/tools/text/SmartQuotes")) },
+  { slug: "sentence-case", name: "Sentence Case", category: "text", description: "Force proper sentence capitalization on any text.", icon: TypeIcon, keywords: ["sentence case", "capitalize", "punctuation"], component: lazy(() => import("@/tools/text/SentenceCase")) },
+  { slug: "image-rotate", name: "Image Rotate / Flip", category: "image", description: "Rotate 90°/180°/270° and flip horizontally or vertically.", icon: RotateCw, keywords: ["rotate", "flip", "image"], component: lazy(() => import("@/tools/image/Rotate")) },
+  { slug: "image-grayscale", name: "Image Filters", category: "image", description: "Apply grayscale, sepia or invert filters in-browser.", icon: Droplet, keywords: ["grayscale", "sepia", "invert", "filter"], component: lazy(() => import("@/tools/image/Grayscale")) },
+  { slug: "image-pixelate", name: "Image Pixelate", category: "image", description: "Mosaic / pixelate any image with adjustable block size.", icon: Grid3x3, keywords: ["pixelate", "mosaic", "blur", "image"], component: lazy(() => import("@/tools/image/Pixelate")) },
+  { slug: "image-side-by-side", name: "Image Compare", category: "image", description: "Drop two images side by side for visual diffing.", icon: Columns2, keywords: ["compare", "diff", "image", "side by side"], component: lazy(() => import("@/tools/image/SideBySide")) },
+  { slug: "css-units", name: "CSS Units Reference", category: "design", description: "px, em, rem, %, vh/vw — when to use what.", icon: RulerIcon, keywords: ["css", "units", "rem", "em", "vh"], component: lazy(() => import("@/tools/design/CssUnits")) },
+  { slug: "z-index-explain", name: "Z-Index Explainer", category: "design", description: "Visualize stacking contexts and how z-index is calculated.", icon: Layers, keywords: ["z-index", "stacking", "css", "layers"], component: lazy(() => import("@/tools/design/ZIndexExplain")) },
+  { slug: "shields-badge", name: "Shields.io Badge Builder", category: "design", description: "Build shields.io badge URLs for your README.", icon: Tag, keywords: ["badge", "shields", "readme", "github"], component: lazy(() => import("@/tools/design/BadgeBuilder")) },
+  { slug: "toml-formatter", name: "TOML Formatter", category: "programming", description: "Format and validate TOML — round-trip via JSON.", icon: FileCode, keywords: ["toml", "format", "config"], component: lazy(() => import("@/tools/programming/TomlFormatter")) },
+  { slug: "http-methods", name: "HTTP Methods", category: "programming", description: "GET / POST / PUT / PATCH / DELETE / … — quick reference card.", icon: Network, keywords: ["http", "methods", "rest", "reference"], component: lazy(() => import("@/tools/programming/HttpMethods")) },
+  { slug: "ts-util-types", name: "TS Utility Types", category: "programming", description: "Partial, Pick, Omit, Record — with examples.", icon: Code2, keywords: ["typescript", "utility", "types", "reference"], component: lazy(() => import("@/tools/programming/TsUtilTypes")) },
+  { slug: "dns-records", name: "DNS Record Types", category: "network", description: "A, AAAA, CNAME, MX, TXT, SRV, CAA — what each does.", icon: ServerCog, keywords: ["dns", "records", "a", "cname", "mx", "txt"], component: lazy(() => import("@/tools/network/DnsRecords")) },
+  { slug: "http-cache", name: "HTTP Cache Header Builder", category: "network", description: "Compose Cache-Control headers without guessing the directives.", icon: Globe, keywords: ["cache", "cache-control", "http", "headers"], component: lazy(() => import("@/tools/network/HttpCache")) },
+  { slug: "password-entropy", name: "Password Entropy", category: "security", description: "Compute the entropy (bits) of a password & estimate crack time.", icon: KeyRoundIcon2, keywords: ["entropy", "password", "strength", "bits"], component: lazy(() => import("@/tools/security/PasswordEntropy")) },
 ];
 
 export const toolsBySlug = Object.fromEntries(
