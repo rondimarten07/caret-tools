@@ -288,4 +288,40 @@ export const FAQS: Record<string, Faq[]> = {
   "hash-chain": [
     { q: "What is a hash chain used for?", a: "Lamport one-time signatures, S/Key OTPs, and stretched key derivation (PBKDF2 / Argon2) all rely on iterated hashing." },
   ],
+  "curl-builder": [
+    { q: "Will the cURL run in any shell?", a: "It uses single-quote escaping which works in bash/zsh. PowerShell needs different quoting — use the fetch() output for cross-platform scripting." },
+  ],
+  "conventional-commits": [
+    { q: "Do I need a scope?", a: "No — scope is optional. Add it when the change is localized to a clear area (`feat(auth): ...`). Skip it otherwise." },
+  ],
+  "css-clamp": [
+    { q: "Will clamp() work in older browsers?", a: "All modern browsers since 2020. For IE11 you need a static fallback before the clamp() line." },
+  ],
+  "squircle": [
+    { q: "Why not just use a large border-radius?", a: "border-radius gives circular arcs. A squircle uses a continuous Lamé curve — visibly smoother where the corner meets the straight edges." },
+  ],
+  "easing-cheatsheet": [
+    { q: "Which curve should I use for entering UI?", a: "ease-out family — starts fast, settles softly. ease-in is reserved for elements leaving the viewport." },
+  ],
+  "geohash": [
+    { q: "Why use geohash over plain lat/lng?", a: "It's a single string that sorts by spatial proximity — perfect for indexed range queries in DBs that don't have native geo indexes." },
+  ],
+  "timezone-abbr": [
+    { q: "Why are some abbreviations ambiguous?", a: "Timezone abbreviations aren't standardized — CST means Central Standard (US) or China Standard depending on context. Use IANA names for storage." },
+  ],
+  "mock-json-data": [
+    { q: "Can I add my own field types?", a: "Not yet — the type set is fixed (id, int, name, email…). For richer mocks use the dedicated Fake Data tool." },
+  ],
+  "csp-builder": [
+    { q: "Should I include 'unsafe-inline'?", a: "Only if you have no other choice. It defeats much of CSP's XSS protection. Prefer nonces or hashes." },
+  ],
+  "linear-regression": [
+    { q: "What's R²?", a: "Coefficient of determination — fraction of variance explained by the model. 1.0 = perfect fit; 0 = no better than the mean." },
+  ],
+  "big-factorial": [
+    { q: "Why is the result not in scientific notation?", a: "For exact integer answers, BigInt strings are the canonical form. Stirling's estimate is shown alongside if you want a rough magnitude." },
+  ],
+  "image-vignette": [
+    { q: "Does this re-encode my image?", a: "Yes — output is a re-encoded PNG. Original EXIF / color profile metadata is dropped." },
+  ],
 };
