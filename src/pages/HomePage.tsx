@@ -67,12 +67,18 @@ export default function HomePage() {
         <div className="dotted-bg pointer-events-none absolute inset-0 opacity-40" />
 
         <div className="relative">
-          <span className="inline-flex items-center gap-1.5 rounded-full border bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+          <span
+            className="animate-rise inline-flex items-center gap-1.5 rounded-full border bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground"
+            style={{ ["--i" as string]: 0 }}
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
             {tools.length} tools · free · in-browser
           </span>
 
-          <h1 className="mt-6 max-w-2xl text-balance text-4xl font-bold tracking-tight md:text-6xl">
+          <h1
+            className="animate-rise mt-6 max-w-2xl text-balance text-4xl font-bold tracking-tight md:text-6xl"
+            style={{ ["--i" as string]: 1 }}
+          >
             {brand.tagline.split(" ").slice(0, -1).join(" ")}{" "}
             <span className="relative inline-block">
               <span className="text-foreground">
@@ -82,13 +88,17 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="mt-4 max-w-xl text-balance text-sm text-muted-foreground md:text-base">
+          <p
+            className="animate-rise mt-4 max-w-xl text-balance text-sm text-muted-foreground md:text-base"
+            style={{ ["--i" as string]: 2 }}
+          >
             {brand.description}
           </p>
 
           <form
             onSubmit={onSearch}
-            className="mt-7 flex max-w-xl items-center gap-2 rounded-full border bg-background p-1.5 shadow-sm"
+            className="animate-rise mt-7 flex max-w-xl items-center gap-2 rounded-full border bg-background p-1.5 shadow-sm"
+            style={{ ["--i" as string]: 3 }}
           >
             <Search className="ml-2 h-4 w-4 shrink-0 text-muted-foreground" />
             <Input
@@ -102,7 +112,10 @@ export default function HomePage() {
             </Button>
           </form>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+          <div
+            className="animate-rise mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground"
+            style={{ ["--i" as string]: 4 }}
+          >
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5" />
               No data ever leaves your browser
@@ -127,8 +140,14 @@ export default function HomePage() {
           icon={<Star className="h-4 w-4 fill-amber-400 text-amber-400" />}
         >
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {favorites.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
+            {favorites.map((tool, idx) => (
+              <div
+                key={tool.slug}
+                className="animate-rise"
+                style={{ ["--i" as string]: idx }}
+              >
+                <ToolCard tool={tool} />
+              </div>
             ))}
           </div>
         </Section>
@@ -138,8 +157,14 @@ export default function HomePage() {
       {recent.length > 0 && (
         <Section title={t("nav.recently")}>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-            {recent.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} compact />
+            {recent.map((tool, idx) => (
+              <div
+                key={tool.slug}
+                className="animate-rise"
+                style={{ ["--i" as string]: idx }}
+              >
+                <ToolCard tool={tool} compact />
+              </div>
             ))}
           </div>
         </Section>
@@ -153,15 +178,16 @@ export default function HomePage() {
       */}
       <Section title={t("nav.categories")}>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c) => {
+          {categories.map((c, idx) => {
             const list = toolsByCategory(c.id);
             const Icon = c.icon;
             return (
               <Link
                 key={c.id}
                 to={`/category/${c.id}`}
+                style={{ ["--i" as string]: idx }}
                 className={cn(
-                  "group relative flex flex-col gap-4 overflow-hidden rounded-2xl border bg-card p-5",
+                  "group animate-rise relative flex flex-col gap-4 overflow-hidden rounded-2xl border bg-card p-5",
                   "shadow-[0_1px_2px_hsl(var(--foreground)/0.04),0_4px_12px_hsl(var(--foreground)/0.04)]",
                   "transition-all duration-200",
                   "hover:-translate-y-0.5 hover:border-foreground/15",
@@ -238,8 +264,14 @@ export default function HomePage() {
         subtitle={t("nav.featuredSubtitle")}
       >
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {featured.map((tool) => (
-            <ToolCard key={tool.slug} tool={tool} />
+          {featured.map((tool, idx) => (
+            <div
+              key={tool.slug}
+              className="animate-rise"
+              style={{ ["--i" as string]: idx }}
+            >
+              <ToolCard tool={tool} />
+            </div>
           ))}
         </div>
       </Section>
