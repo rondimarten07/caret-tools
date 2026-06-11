@@ -13,7 +13,7 @@ export default defineConfig({
         name: "Caret — Precision tools, in your pocket",
         short_name: "Caret",
         description:
-          "100+ free in-browser utilities for developers, designers and makers. Nothing leaves your device.",
+          "300+ free in-browser utilities for developers, designers and makers. Nothing leaves your device.",
         theme_color: "#4f46e5",
         background_color: "#ffffff",
         display: "standalone",
@@ -49,6 +49,20 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (!id.includes("node_modules")) return;
+          if (id.includes("react-router")) return "vendor-router";
+          if (id.includes("/react-dom/") || id.includes("/react/") || id.includes("scheduler") || id.includes("@radix-ui")) return "vendor-react";
+          if (id.includes("lucide-react")) return "vendor-icons";
+          if (id.includes("cmdk") || id.includes("sonner") || id.includes("next-themes") || id.includes("react-helmet")) return "vendor-ui";
+        },
+      },
     },
   },
 });

@@ -24,7 +24,7 @@ export const brand = {
   domain: "caret.app",
   tagline: "Precision tools, in your pocket.",
   description:
-    "A calm, in-browser toolbox of 100+ small utilities for developers, designers and makers. Privacy by default — nothing leaves your device.",
+    "A calm, in-browser toolbox of 300+ small utilities for developers, designers and makers. Privacy by default — nothing leaves your device.",
 
   /* ── Voice ────────────────────────────────────────────────────────── */
   voice: {
