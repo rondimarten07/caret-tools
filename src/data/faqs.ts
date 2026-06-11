@@ -156,4 +156,49 @@ export const FAQS: Record<string, Faq[]> = {
   "mac-generator": [
     { q: "What is the locally administered bit?", a: "Bit 1 of the first octet — set means the MAC is locally assigned (not from a hardware vendor). Useful for virtual interfaces." },
   ],
+  "hex-binary": [
+    { q: "Why is each hex digit four binary digits?", a: "Hexadecimal is base-16; 16 = 2⁴, so each hex digit cleanly maps to a 4-bit nibble." },
+  ],
+  "ip-to-int": [
+    { q: "Why convert IPs to integers?", a: "Database indexes, ACL ranges, and arithmetic comparisons are all faster on integers than on text addresses." },
+  ],
+  "braille": [
+    { q: "Is this real Braille?", a: "It's Grade 1 Unified English Braille (letter-for-letter). Grade 2 contractions and language-specific systems are not included." },
+  ],
+  "probability": [
+    { q: "What's the difference between nPr and nCr?", a: "nPr (permutation) counts ordered arrangements; nCr (combination) counts unordered selections. nCr = nPr / r!." },
+  ],
+  "triangle-solver": [
+    { q: "What method does it use?", a: "Law of cosines for angles, then Heron's formula for area. Accuracy is limited by floating-point — extreme angles can lose precision." },
+  ],
+  "polygon-area": [
+    { q: "Does the polygon need to be convex?", a: "No. The shoelace formula works for any simple (non-self-intersecting) polygon, convex or concave." },
+  ],
+  "vigenere": [
+    { q: "Is this cryptographically secure?", a: "No — Vigenère is a classical cipher, broken by frequency analysis (Kasiski/Friedman). Use it for puzzles, not secrets." },
+  ],
+  "rot-n": [
+    { q: "Why is ROT13 popular?", a: "It's its own inverse and obscures text without protecting it — good for spoiler hiding, joke punchlines, Usenet etiquette." },
+  ],
+  "line-endings": [
+    { q: "Which line ending should I use?", a: "LF on Unix/macOS/web, CRLF on Windows. Most modern editors and git's autocrlf handle this transparently." },
+  ],
+  "bom-remover": [
+    { q: "Why is a BOM problematic?", a: "Some tools (shell scripts, JSON parsers, JS modules) don't expect it and break on the leading U+FEFF byte." },
+  ],
+  "iso8601": [
+    { q: "Why prefer ISO 8601?", a: "It sorts lexicographically as it does chronologically, includes the timezone offset, and is unambiguous across locales." },
+  ],
+  "year-progress": [
+    { q: "When does the week start?", a: "ISO standard: Monday. The week bar tracks Mon–Sun of the current week." },
+  ],
+  "ip-class": [
+    { q: "Are classes still used?", a: "No — modern routing is classless (CIDR). The labels remain useful for quick reads and for understanding default masks in legacy gear." },
+  ],
+  "license-snippet": [
+    { q: "Is the generated text legally sufficient?", a: "It mirrors the canonical license text. Always read the full license to confirm it suits your use case." },
+  ],
+  "apikey-format": [
+    { q: "Can I use these in production?", a: "No — these are random strings shaped to look like real keys. They won't authenticate against any service. Generate via your provider's dashboard." },
+  ],
 };
