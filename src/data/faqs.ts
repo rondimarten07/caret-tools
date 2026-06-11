@@ -324,4 +324,34 @@ export const FAQS: Record<string, Faq[]> = {
   "image-vignette": [
     { q: "Does this re-encode my image?", a: "Yes — output is a re-encoded PNG. Original EXIF / color profile metadata is dropped." },
   ],
+  "json-pointer": [
+    { q: "What about JSON Patch?", a: "JSON Patch (RFC 6902) builds on JSON Pointer to express add/remove/replace operations. This tool only evaluates a single Pointer." },
+  ],
+  "sql-params": [
+    { q: "Which dialect uses which style?", a: "MySQL / JDBC: ?. PostgreSQL: $1, $2. Oracle / SQLite named: :name. SQL Server / .NET: @name." },
+  ],
+  "regex-explain": [
+    { q: "Does it support PCRE-only features?", a: "It targets JavaScript regex. PCRE-specific bits (recursion, conditionals) won't be recognized." },
+  ],
+  "container-queries": [
+    { q: "Why not just use media queries?", a: "Media queries respond to the viewport. Container queries respond to the parent — so a single component adapts wherever it's placed." },
+  ],
+  "geo-distance": [
+    { q: "How accurate is Haversine?", a: "About 0.5%. For survey precision use Vincenty's formula on a real ellipsoid." },
+  ],
+  "bezier-picker": [
+    { q: "Can the curve go above 1 or below 0?", a: "Yes — that's overshoot/undershoot (the \"back\" easings). Drag a handle past the box edges to dial it in." },
+  ],
+  "tls-handshake": [
+    { q: "Should I enable 0-RTT?", a: "Only for idempotent requests (GETs). 0-RTT data is replay-prone, so it's unsafe for state-changing operations." },
+  ],
+  "newton-method": [
+    { q: "Why does it sometimes diverge?", a: "If the derivative is small or the function has a nearby asymptote, Newton overshoots. Pick a guess closer to the suspected root." },
+  ],
+  "image-checksum": [
+    { q: "Is the file uploaded?", a: "No — hashing runs entirely in your browser via SubtleCrypto.digest. Even large files stay local." },
+  ],
+  "cookie-attrs": [
+    { q: "Lax or Strict?", a: "Strict if your cookie is purely auth and you don't need cross-site navigation to stay logged in. Lax otherwise." },
+  ],
 };

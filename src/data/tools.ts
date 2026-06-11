@@ -234,6 +234,7 @@ import {
   Frame,
   PlugZap,
   Flag,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import type { CategoryId } from "@/data/categories";
@@ -2198,6 +2199,32 @@ export const tools: Tool[] = [
   { slug: "big-factorial", name: "Big Factorial", category: "math", description: "n! for huge n using BigInt — full digits or scientific.", icon: SigmaIcon, keywords: ["factorial", "bigint", "huge"], component: lazy(() => import("@/tools/math/BigFactorial")) },
   { slug: "image-vignette", name: "Image Vignette", category: "image", description: "Add a soft dark vignette around any image.", icon: Gauge, keywords: ["vignette", "image", "effect"], component: lazy(() => import("@/tools/image/Vignette")) },
   { slug: "csp-builder", name: "CSP Header Builder", category: "security", description: "Compose a Content-Security-Policy header without guessing.", icon: ShieldCheckIcon, keywords: ["csp", "content security policy", "header"], component: lazy(() => import("@/tools/security/CspBuilder")) },
+  // ============================== Sesi 12 ==============================
+  { slug: "json-pointer", name: "JSON Pointer Eval", category: "programming", description: "RFC 6901 JSON Pointer — evaluate /foo/0/bar against a JSON doc.", icon: Code2, keywords: ["json pointer", "rfc 6901", "path"], component: lazy(() => import("@/tools/programming/JsonPointer")) },
+  { slug: "diff-patch", name: "Apply Unified Diff", category: "programming", description: "Apply a unified diff / patch to a source file in-browser.", icon: GitCompare, keywords: ["diff", "patch", "unified"], component: lazy(() => import("@/tools/programming/DiffPatch")) },
+  { slug: "sql-params", name: "SQL Param Style", category: "programming", description: "Swap between ?, $1, :name and @name placeholders.", icon: Database, keywords: ["sql", "params", "placeholders"], component: lazy(() => import("@/tools/programming/SqlParams")) },
+  { slug: "regex-explain", name: "Regex Explainer", category: "programming", description: "Break a regex into labeled tokens — anchors, classes, quantifiers.", icon: Regex, keywords: ["regex", "explain", "tokens"], component: lazy(() => import("@/tools/programming/RegexExplain")) },
+  { slug: "html-entity-ref", name: "HTML Entities", category: "programming", description: "Common HTML named entities and their codepoints.", icon: BracketsIcon2, keywords: ["html", "entity", "amp", "reference"], component: lazy(() => import("@/tools/programming/HtmlEntityRef")) },
+  { slug: "letter-spacing", name: "Letter-Spacing Visualizer", category: "design", description: "Preview letter-spacing values across multiple sizes.", icon: CaseSensitive, keywords: ["letter-spacing", "tracking", "typography"], component: lazy(() => import("@/tools/design/LetterSpacing")) },
+  { slug: "container-queries", name: "Container Queries", category: "design", description: "Reference: container-type, @container rules, units (cqw, cqh).", icon: Square, keywords: ["container query", "css", "@container", "responsive"], component: lazy(() => import("@/tools/design/ContainerQueries")) },
+  { slug: "logical-properties", name: "CSS Logical Properties", category: "design", description: "margin-block, inline-size, padding-inline — RTL-friendly CSS.", icon: Box, keywords: ["logical", "css", "rtl", "inline", "block"], component: lazy(() => import("@/tools/design/LogicalProperties")) },
+  { slug: "animation-keys", name: "Animation Properties", category: "design", description: "animation-iteration-count, direction, play-state — quick reference.", icon: Sparkles, keywords: ["animation", "css", "iteration", "direction"], component: lazy(() => import("@/tools/design/AnimationKeys")) },
+  { slug: "stress-lorem", name: "Big Lorem", category: "text", description: "Generate huge lorem ipsum — KB / MB output for stress-testing.", icon: TextQuote, keywords: ["lorem", "huge", "stress", "test"], component: lazy(() => import("@/tools/text/StressLorem")) },
+  { slug: "pangram-check", name: "Pangram Checker", category: "text", description: "Does the text contain every letter A–Z?", icon: TypeIcon, keywords: ["pangram", "alphabet", "check"], component: lazy(() => import("@/tools/text/PangramCheck")) },
+  { slug: "pangram-list", name: "Pangram Library", category: "text", description: "Curated list of clean pangrams — pick for type previews.", icon: BookOpenIcon, keywords: ["pangram", "type", "preview"], component: lazy(() => import("@/tools/text/PangramList")) },
+  { slug: "geo-distance", name: "Geo Distance", category: "converter", description: "Great-circle distance between two coordinates (Haversine).", icon: MapPin, keywords: ["distance", "haversine", "geo", "great circle"], component: lazy(() => import("@/tools/converter/GeoDistance")) },
+  { slug: "wavelength", name: "Wavelength ↔ Frequency", category: "converter", description: "Convert between wavelength (nm) and frequency (THz) for light.", icon: Radio, keywords: ["wavelength", "frequency", "light", "thz", "nm"], component: lazy(() => import("@/tools/converter/Wavelength")) },
+  { slug: "hsl-palette", name: "Random HSL Palette", category: "generator", description: "Generate harmonic HSL palettes (analogous, complementary, triadic).", icon: PaletteIcon, keywords: ["palette", "hsl", "random", "color"], component: lazy(() => import("@/tools/generator/HslPalette")) },
+  { slug: "bezier-picker", name: "Bezier Picker", category: "generator", description: "Drag control points to dial in a custom cubic-bezier easing.", icon: SplineIcon, keywords: ["bezier", "cubic-bezier", "easing", "picker"], component: lazy(() => import("@/tools/generator/BezierPicker")) },
+  { slug: "mailto-builder", name: "mailto: Link Builder", category: "generator", description: "Compose a mailto: URL with subject, body and cc/bcc.", icon: Mail, keywords: ["mailto", "email", "link"], component: lazy(() => import("@/tools/generator/MailtoBuilder")) },
+  { slug: "http3", name: "HTTP/3 Reference", category: "network", description: "QUIC, ALPN, 0-RTT — what HTTP/3 changed from HTTP/2.", icon: Network, keywords: ["http/3", "quic", "alpn"], component: lazy(() => import("@/tools/network/Http3")) },
+  { slug: "asn-reference", name: "ASN & RIR Reference", category: "network", description: "Autonomous Systems, the five RIRs, and BGP basics.", icon: Globe, keywords: ["asn", "rir", "bgp", "autonomous system"], component: lazy(() => import("@/tools/network/AsnReference")) },
+  { slug: "tls-handshake", name: "TLS Handshake", category: "network", description: "TLS 1.2 vs 1.3 handshake — round-trips, what happens at each step.", icon: ShieldCheckIcon, keywords: ["tls", "handshake", "ssl", "1.3"], component: lazy(() => import("@/tools/network/TlsHandshake")) },
+  { slug: "newton-method", name: "Newton's Method", category: "math", description: "Find roots of f(x) = 0 by Newton-Raphson iteration.", icon: TrendingUp, keywords: ["newton", "raphson", "root", "iteration"], component: lazy(() => import("@/tools/math/NewtonMethod")) },
+  { slug: "big-gcd-lcm", name: "Big GCD / LCM", category: "math", description: "GCD and LCM for huge integers using BigInt.", icon: SigmaIcon, keywords: ["gcd", "lcm", "bigint", "huge"], component: lazy(() => import("@/tools/math/BigGcdLcm")) },
+  { slug: "image-checksum", name: "Image Checksum", category: "image", description: "Compute SHA-256 of an image file in-browser.", icon: Fingerprint, keywords: ["checksum", "sha-256", "image", "hash"], component: lazy(() => import("@/tools/image/Checksum")) },
+  { slug: "image-blur", name: "Image Blur", category: "image", description: "Apply Gaussian blur with adjustable radius.", icon: Droplet, keywords: ["blur", "gaussian", "image"], component: lazy(() => import("@/tools/image/Blur")) },
+  { slug: "cookie-attrs", name: "Cookie Attributes", category: "security", description: "Compose a Set-Cookie header with SameSite, Secure, HttpOnly.", icon: Cookie, keywords: ["cookie", "samesite", "secure", "httponly"], component: lazy(() => import("@/tools/security/CookieAttrs")) },
 ];
 
 export const toolsBySlug = Object.fromEntries(
